@@ -5,6 +5,14 @@ This project extracts detailed facial features from video clips and transforms t
 
 ---
 
+## Social Preview
+
+```markdown
+![Preview](./preview.png)
+```
+
+---
+
 ## Overview
 
 This repository includes:
