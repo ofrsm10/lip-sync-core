@@ -4,9 +4,9 @@ from datetime import datetime
 import cv2
 import pandas as pd
 from matplotlib import pyplot as plt
-from Utils.extract_features import mp_face_mesh, extract_features
-from Utils.pandas_utils import crop_sequences
-from Utils.plots import save_boundary_plot, save_files_and_plots
+from utils.extract_features import mp_face_mesh, extract_features
+from utils.pandas_utils import crop_sequences
+from utils.plots import save_boundary_plot, save_files_and_plots
 from constants.constants import VIDEOS_PATH
 
 

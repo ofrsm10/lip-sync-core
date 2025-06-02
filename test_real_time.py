@@ -7,9 +7,9 @@ import mediapipe as mp
 import pandas as pd
 import torch
 from constants.constants import CLASSES, MODEL_PATH
-from Utils.extract_features import extract_features
-from Utils.numpy_utils import pad_sequence
-from Utils.pandas_utils import normalize_dataframe
+from utils.extract_features import extract_features
+from utils.numpy_utils import pad_sequence
+from utils.pandas_utils import normalize_dataframe
 
 
 def test_word(model, word, path, count=0, miss=0):
