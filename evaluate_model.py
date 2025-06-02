@@ -4,8 +4,8 @@ import torch
 from torch import nn as nn
 from torch.utils.data import DataLoader
 from constants.constants import CLASSES, DATA_SETS_PATH, MODEL_PATH
-from Utils.general_utils import get_encoded_labels, convert_tuple
-from Utils.plots import plot_confusion_matrix, plot_umap
+from utils.general_utils import get_encoded_labels, convert_tuple
+from utils.plots import plot_confusion_matrix, plot_umap
 
 
 def evaluate(model):

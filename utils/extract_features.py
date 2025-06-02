@@ -2,7 +2,7 @@ import cv2
 import mediapipe as mp
 import numpy as np
 from constants.constants import RIGHT, LEFT, UPPER, LOWER, INLINE
-from Utils.general_utils import convex_hull
+from utils.general_utils import convex_hull
 
 mp_face_mesh = mp.solutions.face_mesh
 mp_drawing = mp.solutions.drawing_utils
