@@ -5,14 +5,6 @@ This project extracts detailed facial features from video clips and transforms t
 
 ---
 
-## Social Preview
-
-```markdown
-![Preview](./preview.png)
-```
-
----
-
 ## Overview
 
 This repository includes:
@@ -175,7 +167,7 @@ To contribute, fork the repository and submit a pull request with:
 
 ## Author
 
-**Ofer Simchovitch**  
+**Ofer Zvi Simchovitch**  
 Lip-reading research & software development  
 Contact: [ofrsm10@gmail.com](mailto:ofrsm10@gmail.com)
 
