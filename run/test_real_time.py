@@ -1,12 +1,9 @@
-import os.path
-from mimetypes import inited
 from time import time
-
 import cv2
 import mediapipe as mp
 import pandas as pd
 import torch
-from constants.constants import CLASSES, MODEL_PATH
+from constants.constants import CLASSES
 from utils.extract_features import extract_features
 from utils.numpy_utils import pad_sequence
 from utils.pandas_utils import normalize_dataframe
