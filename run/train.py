@@ -5,9 +5,9 @@ from torch import nn as nn, optim as optim
 from torch.utils.data import DataLoader
 from constants.constants import CLASSES, MODEL_PATH
 from model.cnn import CNN
+from datasets.create_dataset import create_datasets
 from utils.general_utils import get_encoded_labels, convert_tuple
 from utils.plots import plot_train_loss, plot_train_accuracy
-from datasets.create_dataset import create_datasets
 
 
 def train(num_epochs=40,train_ratio=0.7):
