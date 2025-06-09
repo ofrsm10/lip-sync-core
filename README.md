@@ -206,8 +206,8 @@ A 3D UMAP projection of the model’s internal representations. Clusters indicat
 
 ---
 
-#### Feature Trends (Examples)
-**Normalized Feature Curves Per Frame**
+#### Feature representation
+**Normalized Feature extracted Per word**
 
 - **Ratio, Area, Teeth, Tongue** over time during speech.
 - These curves help visualize the dynamic behavior of mouth shapes during word articulation.
