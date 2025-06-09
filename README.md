@@ -1,7 +1,7 @@
 # Lip Sync Core - A Visual Speech-to-Text Model
 
 <p>
-  <img src="images/preview.png" width="600" />
+  <img src="images/preview.png" width="800" />
 </p>
 
 **Multi-stage pipeline for creating, training, and evaluating a lip-reading model from video data.**  
