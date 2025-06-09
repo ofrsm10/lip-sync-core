@@ -1,7 +1,7 @@
 import os
 import torch
 from constants.constants import ROOT_PATH, DATA_SAMPLES_PATH
-from data_samples.dataset import CustomDataset
+from datasets.dataset import CustomDataset
 
 
 def create_datasets(train_ratio):
