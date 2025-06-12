@@ -192,7 +192,7 @@ Training loss decreases rapidly during the early epochs, confirming effective le
 ---
 
 #### Confusion Matrix and Class Distribution
-![Confusion Matrix](images/Confusion Matrix.png)
+![Confusion Matrix](images/Confusion_Matrix.png)
 
 - Left: Confusion matrix shows how often each word was correctly or incorrectly predicted.
 - Right: Distribution of true labels across classes. Balanced class distribution is critical for model performance.

@@ -1,5 +1,10 @@
+import os
+
 import pandas as pd
 from sklearn.preprocessing import minmax_scale
+
+from constants.constants import DATA_SAMPLES_PATH
+from utils.plots import save_boundary_plot, save_files_and_plots
 
 
 def normalize_dataframe(matrix):
@@ -69,3 +74,30 @@ def crop_sequences(df1, df2, df3):
     print(f"Cropped {len(crop1)} samples..")
     print(f"Cropped {len(crop2)} samples from mirrored video..")
     return crop1, crop2
+
+
+def save_features_for_word(word, frames_features, frames_features1, x_d, y_d):
+    word_path = os.path.join(DATA_SAMPLES_PATH, word)
+    if not os.path.exists(word_path):
+        os.mkdir(word_path)
+    k = 1
+    while True:
+        new_dir1 = "iteration" + "{:03d}".format(k)
+        if not os.path.exists(f'{word_path}/{new_dir1}'):
+            os.mkdir(f'{word_path}/{new_dir1}')
+            new_dir2 = new_dir1 + "_mirror"
+            os.mkdir(f'{word_path}/{new_dir2}')
+            break
+        k += 1
+    with open(f'{word_path}/{new_dir1}/features_raw.csv', 'w', newline='') as file:
+        features_df = pd.DataFrame(frames_features)
+        features_df.to_csv(file)
+    with open(f'{word_path}/{new_dir2}/features_raw.csv', 'w', newline='') as file:
+        m_features_df = pd.DataFrame(frames_features1)
+        m_features_df.to_csv(file)
+    data = {"features": frames_features, "area": x_d, "area1": y_d}
+    collection_df = pd.DataFrame(data)
+    save_boundary_plot(collection_df, f"{word_path}")
+    cropped_features, cropped_m_features = crop_sequences(collection_df, features_df, m_features_df)
+    save_files_and_plots(cropped_features, cropped_m_features, f"{word_path}/{new_dir1}")
+

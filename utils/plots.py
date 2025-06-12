@@ -64,7 +64,7 @@ def plot_confusion_matrix(y_true, y_pred):
     ax2.set_xlabel('True label')
     ax2.set_ylabel('Class count')
     fig.tight_layout()
-    plt.savefig(os.path.join(STATS_PATH, "Confusion Matrix.png"))
+    plt.savefig(os.path.join(STATS_PATH, "Confusion_Matrix.png"))
 
 def plot_umap(features, labels):
     features = np.vstack(features)
