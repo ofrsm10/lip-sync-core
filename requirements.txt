@@ -5,5 +5,5 @@ pandas
 scikit-learn
 opencv-python
 matplotlib
-mediapipe
 umap-learn
+git+https://github.com/ofrsm10/mediapipe.git
