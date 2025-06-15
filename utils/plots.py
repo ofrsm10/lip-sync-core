@@ -83,7 +83,7 @@ def plot_umap(features, labels):
         ax.scatter(umap_features[:, 0][mask], umap_features[:, 1][mask], umap_features[:, 2][mask],
                    label=reversed_classes[label])  # Reverse the label
     ax.legend()
-    plt.savefig(os.path.join(full_path, "UMAP.png"))
+    plt.savefig(os.path.join(STATS_PATH, "UMAP.png"))
     plt.close()
 
 def save_files_and_plots(c_features, m_features, base_path):

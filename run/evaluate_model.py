@@ -3,6 +3,8 @@ from time import time
 import torch
 from torch import nn as nn
 from torch.utils.data import DataLoader
+
+from cnn_model.cnn import CNN
 from constants.constants import CLASSES, DATA_SETS_PATH, MODEL_PATH
 from utils.general_utils import get_encoded_labels, convert_tuple
 from utils.plots import plot_confusion_matrix, plot_umap
@@ -11,7 +13,7 @@ from utils.plots import plot_confusion_matrix, plot_umap
 def evaluate(model):
     if not os.path.exists(DATA_SETS_PATH):
         os.mkdir(DATA_SETS_PATH)
-    test_dataset = torch.load(os.path.join(DATA_SETS_PATH,"cnn_test_data.pt"))
+    test_dataset = torch.load(os.path.join(DATA_SETS_PATH,"test_data.pt"))
     test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
     criterion = nn.CrossEntropyLoss()
     num_samples = len(test_dataset)
@@ -84,10 +86,11 @@ def evaluate(model):
 
 
 if __name__ == '__main__':
-    test_data_set_path = os.path.join(DATA_SETS_PATH, "cnn_test_data.pt")
+    test_data_set_path = os.path.join(DATA_SETS_PATH, "test_data.pt")
     if not os.path.exists(test_data_set_path):
         print("No test data found, please run the training script first.")
     else:
-        model = torch.load(os.path.join(MODEL_PATH,"model.pth"))
+        model = CNN(num_classes=len(CLASSES), num_rows=60, num_cols=4)
+        model.load_state_dict(torch.load(os.path.join(MODEL_PATH, "cnn_model.pth")))
         evaluate(model)
         print("Evaluation completed successfully.")

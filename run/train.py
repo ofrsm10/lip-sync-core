@@ -4,14 +4,14 @@ import torch
 from torch import nn as nn, optim as optim
 from torch.utils.data import DataLoader
 from constants.constants import CLASSES, MODEL_PATH
-from model.cnn import CNN
-from datasets.create_dataset import create_datasets
+from cnn_model.cnn import CNN
+from utils.create_dataset import create_datasets
 from utils.general_utils import get_encoded_labels, convert_tuple
 from utils.plots import plot_train_loss, plot_train_accuracy
 
 
 def train(num_epochs=40,train_ratio=0.7):
-    """ Train the CNN model on the dataset."""
+    """ Train the CNN cnn_model on the dataset."""
     (train_dataset, test_dataset, dataset), (num_samples, num_train_samples) = create_datasets(train_ratio)
     train_loader = DataLoader(train_dataset, batch_size=1, shuffle=True, )
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -36,7 +36,7 @@ def train(num_epochs=40,train_ratio=0.7):
             input = input.to(device)
             label = label.to(device)
             optimizer.zero_grad()
-            # outputs = [model(inp) for inp in inputs]
+            # outputs = [cnn_model(inp) for inp in inputs]
             outputs = model(input)
             loss = criterion(outputs, label)
             loss.backward()
@@ -66,5 +66,5 @@ def train(num_epochs=40,train_ratio=0.7):
 if __name__ == "__main__":
     epochs = int(input("How many epochs? "))
     model = train(num_epochs=epochs)
-    torch.save(model.state_dict(), os.path.join(MODEL_PATH,"model.pth"))
-    print(f"Model saved as {os.path.join(MODEL_PATH,'model.pth')}")
+    torch.save(model.state_dict(), os.path.join(MODEL_PATH,"cnn_model.pth"))
+    print(f"Model saved as {os.path.join(MODEL_PATH,'cnn_model.pth')}")
