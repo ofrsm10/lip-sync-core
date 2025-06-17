@@ -4,7 +4,7 @@ import torch
 from torch import nn as nn, optim as optim
 from torch.utils.data import DataLoader
 from constants.constants import CLASSES, MODEL_PATH
-from cnn_model.cnn import CNN
+from infra.cnn import CNN
 from utils.create_dataset import create_datasets
 from utils.general_utils import get_encoded_labels, convert_tuple
 from utils.plots import plot_train_loss, plot_train_accuracy

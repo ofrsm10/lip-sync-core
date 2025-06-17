@@ -4,7 +4,7 @@ import torch
 from torch import nn as nn
 from torch.utils.data import DataLoader
 
-from cnn_model.cnn import CNN
+from infra.cnn import CNN
 from constants.constants import CLASSES, DATA_SETS_PATH, MODEL_PATH
 from utils.general_utils import get_encoded_labels, convert_tuple
 from utils.plots import plot_confusion_matrix, plot_umap

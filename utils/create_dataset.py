@@ -1,8 +1,8 @@
 import os
 import torch
 from torch.utils.data import random_split
-from constants.constants import ROOT_PATH, DATA_SAMPLES_PATH, DATA_SETS_PATH
-from utils.dataset import CustomDataset
+from constants.constants import DATA_SAMPLES_PATH, DATA_SETS_PATH
+from infra.dataset import CustomDataset
 from utils.general_utils import remove_old_files
 
 

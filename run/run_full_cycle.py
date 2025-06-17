@@ -2,11 +2,9 @@ import os
 from datetime import datetime
 import torch
 
-from cnn_model.cnn import CNN
+from infra.cnn import CNN
 from constants.constants import CLASSES, MODEL_PATH, VIDEOS_PATH
-from evaluate_model import evaluate
 from test_real_time import test_word
-from train import train
 
 if __name__ == "__main__":
     # epochs = int(input("How many ephocs?"))

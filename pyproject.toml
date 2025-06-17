@@ -1,0 +1,22 @@
+[project]
+name = "lip_sync_package"
+version = "0.1.0"
+description = "Lip-sync data processing and CNN/UMAP analysis"
+authors = [{ name = "Ofer Simchovitch", email = "ofrsm10@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "torch",
+    "torchvision",
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "opencv-python",
+    "matplotlib",
+    "umap-learn",
+    "requests"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

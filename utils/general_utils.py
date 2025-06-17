@@ -45,8 +45,9 @@ def convex_hull(coordinates: List[tuple]) -> List[tuple]:
 def remove_old_files(full_path):
     for file in os.listdir(full_path):
         file_path = os.path.join(full_path, file)
+
         try:
-            if os.path.isfile(file_path):
+            if os.path.isfile(file_path) and file_path.endswith('.pt'):
                 os.unlink(file_path)
             elif os.path.isdir(file_path):
                 os.rmdir(file_path)
