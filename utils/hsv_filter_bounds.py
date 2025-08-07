@@ -1,10 +1,39 @@
 import cv2
 import numpy as np
+import os
+from typing import Optional
 
-def nothing(x):
+def nothing(x: int) -> None:
+    """Callback function for trackbar changes."""
     pass
 
-img = cv2.imread('/Users/ofersimchovitch/PycharmProjects/lipSyncBeta/Utils/teeth.jpg')
+def find_sample_image() -> Optional[str]:
+    """Find a sample image for HSV calibration."""
+    # Look for sample images in common locations
+    possible_paths = [
+        os.path.join(os.path.dirname(__file__), '..', 'images', 'teeth.jpg'),
+        os.path.join(os.path.dirname(__file__), '..', 'images', 'sample.jpg'),
+        os.path.join(os.path.dirname(__file__), '..', 'images', 'preview.png'),
+    ]
+    
+    for path in possible_paths:
+        if os.path.exists(path):
+            return path
+    
+    print("No sample image found. Please place a sample image in the images/ directory.")
+    return None
+
+# Try to load a sample image
+sample_image_path = find_sample_image()
+if sample_image_path is None:
+    print("Error: No sample image found for HSV calibration.")
+    exit(1)
+
+img = cv2.imread(sample_image_path)
+if img is None:
+    print(f"Error: Could not load image from {sample_image_path}")
+    exit(1)
+
 resized_img = cv2.resize(img, (0, 0), fx=0.5, fy=0.5)
 cv2.namedWindow('marking')
 
