@@ -18,6 +18,7 @@ This repository includes:
 - CNN model training with PyTorch
 - Real-time word prediction and evaluation
 - Rich visualizations (loss curves, UMAP, confusion matrix, etc.)
+- **OpenAI TTS Integration** - Convert predictions to speech with hotkey-based audio playback (no visual overlay)
 
 ---
 
@@ -58,6 +59,9 @@ Requirements include:
 - NumPy, Pandas, Matplotlib, scikit-learn
 - UMAP-learn
 - PyTorch
+- OpenAI (for TTS integration)
+- Keyboard (for hotkey support)
+- Pydub (for audio processing)
 
 ---
 
@@ -123,7 +127,25 @@ python test_real_time.py
 
 This allows you to test model performance on new samples interactively.
 
-### 6. Run the Full Cycle
+### 6. OpenAI Integration with Text-to-Speech
+
+```bash
+export OPENAI_API_KEY="your-api-key-here"
+python run/openai_lipsync.py --video path/to/video.mp4 --model path/to/model.pth
+```
+
+This new application:
+- Processes video to detect lip movements and predict words (without visual overlay)
+- Sends predictions to OpenAI TTS API  
+- Saves both audio (.mp3) and text (.txt) files to `openai_outputs/` directory
+- **Hotkey Controls:**
+  - **SPACE** - Play audio
+  - **S** - Stop audio  
+  - **Q** - Quit application
+
+**No visual overlays** - runs in headless mode, perfect for automated workflows.
+
+### 7. Run the Full Cycle
 
 ```bash
 python run_full_cycle.py
@@ -158,6 +180,7 @@ This executes training and evaluation in one step.
 | `train.py`                              | Trains the model                        |
 | `evaluate_model.py`                     | Evaluates trained model with metrics    |
 | `test_real_time.py`                     | Performs inference on test videos       |
+| `run/openai_lipsync.py`                 | OpenAI TTS integration with hotkey audio playback (no overlay) |
 
 ---
 
