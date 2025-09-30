@@ -14,7 +14,10 @@ dependencies = [
     "opencv-python",
     "matplotlib",
     "umap-learn",
-    "requests"
+    "requests",
+    "openai",
+    "keyboard",
+    "pydub"
 ]
 
 [build-system]

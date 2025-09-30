@@ -7,3 +7,6 @@ opencv-python
 matplotlib
 umap-learn
 git+https://github.com/ofrsm10/mediapipe.git
+openai
+keyboard
+pydub
